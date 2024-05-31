@@ -1,0 +1,93 @@
+body {
+    background: #2E426C;
+    overflow: hidden;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    margin: 0;
+    color: #75A2A2;
+}
+
+.wrapper {
+    perspective: 1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.grid {
+    width: auto;
+    /* Adjust based on your grid’s width */
+    height: auto;
+    /* Adjust based on your grid’s height */
+    transform: rotateX(75deg) rotateY(0deg) rotateZ(45deg);
+    transform-style: preserve-3d;
+    position: relative;
+    margin: 0 auto;
+}
+
+.cell {
+    width: 60px;
+    /* Adjust based on your needs */
+    height: 60px;
+    /* Adjust based on your needs */
+    float: left;
+    margin: 5px;
+    background: #75A2A2;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: white;
+}
+
+.cell:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    transition: all 0.3s;
+    transform: translate3d(0, 0, 0);
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.cell:hover:before {
+    background: #FFC600;
+    transform: translate3d(0, 0, 20px);
+    box-shadow: 30px 30px 10px rgba(0, 0, 0, 0.5);
+}
+
+.start-node,
+.goal-node,
+.path-node {
+    font-weight: bold;
+}
+
+.start-node {
+    background-color: #4CAF50;
+    /* Green for start */
+}
+
+.goal-node {
+    background-color: #F44336;
+    /* Red for goal */
+}
+
+.path-node {
+    background-color: #FFEB3B;
+    /* Yellow for path */
+}
